@@ -7,6 +7,9 @@ Created on Thu Nov  8 13:20:18 2018
 
 import pygame
 import event_handler as EH
+from pathlib import Path
+
+image_directory = Path("PNGs")
 
 class App(EH.Handle_Event): 
     # initialisation
@@ -21,11 +24,11 @@ class App(EH.Handle_Event):
         self.xpos_change = 0
         self.ypos_change = 0
         self.move = False
-        
+        self.hero = image_directory / 'Single_Old_Hero.png'
     # do on initialisation    
     def on_init(self):
         pygame.init()
-        self._display_surf = pygame.display.set_mode(self.size, 
+        self._display_surf = pygame.display.set_mode(self.size,
                                                      pygame.HWSURFACE)
         # sets the window name
         self._running = True
@@ -35,7 +38,7 @@ class App(EH.Handle_Event):
         self.clock = pygame.time.Clock()
         
         # loads the single image in to the image_surf variable
-        self._image_surf = pygame.image.load('Single_Old_Hero.png')
+        self._image_surf = pygame.image.load(self.hero)
         self.player_xpos = self.width * .5
         self.player_ypos = self.height * .75
         return True
