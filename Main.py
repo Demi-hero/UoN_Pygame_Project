@@ -2,6 +2,10 @@
 """
 Created on Thu Nov  8 13:20:18 2018
 
+ToDo: 
+    Make it stop on the edges
+    
+
 @author: Nathan
 """
 
@@ -38,7 +42,7 @@ class App(EH.Handle_Event):
         self.clock = pygame.time.Clock()
         
         # loads the single image in to the image_surf variable
-        self._image_surf = pygame.image.load(self.hero)
+        self._image_surf = pygame.image.load('Single_Old_Hero.png')
         self.player_xpos = self.width * .5
         self.player_ypos = self.height * .75
         return True
@@ -52,7 +56,7 @@ class App(EH.Handle_Event):
     
     # what to do when images render
     def on_render(self):
-        self._display_surf.fill(self.white)
+        self._display_surf.fill(self.green)
         self._display_surf.blit(self._image_surf, (self.player_xpos,
                                                   self.player_ypos))
         pygame.display.flip()
