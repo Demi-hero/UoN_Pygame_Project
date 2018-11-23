@@ -6,7 +6,7 @@ Created on Wed Nov 21 15:03:01 2018
 """
 import pygame
 
-class Handle_Event:
+class HandleEvent:
     def __init__(self):
         pass
         
@@ -123,4 +123,4 @@ class Handle_Event:
                     self.on_minimize()
  
 if __name__ == "__main__" :
-    event = Handle_Event()
+    event = HandleEvent()
