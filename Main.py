@@ -70,7 +70,7 @@ class App(EH.HandleEvent):
         self._display_surf.blit(textsurf, textrect)
 
     def on_crash(self):
-        self.message_display("The Aliens Won Solider")
+        self.message_display("Game Over")
         self.message_display("Try Again!", .65)
         pyg.display.update()
         time.sleep(2)
