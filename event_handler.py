@@ -6,12 +6,14 @@ Created on Wed Nov 21 15:03:01 2018
 """
 import pygame
 
-class Handle_Event:
+
+class HandleEvent:
     def __init__(self):
         pass
         
     def on_input_focus(self):
         pass
+
     def on_input_blur(self):
         pass
     
@@ -61,8 +63,10 @@ class Handle_Event:
         pass
     def on_expose(self):
         pass
+
     def on_exit(self):
-        pass
+        self._running = False
+
     def on_user(self,event):
         pass
     def on_event(self, event):
@@ -122,5 +126,6 @@ class Handle_Event:
                 else:
                     self.on_minimize()
  
+
 if __name__ == "__main__" :
-    event = Handle_Event()
+    event = HandleEvent()
