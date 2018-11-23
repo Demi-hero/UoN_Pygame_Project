@@ -20,10 +20,10 @@ ToDo:
 
 import pygame as pyg
 import event_handler as EH
-from pathlib import Path
+import images
 import time
 
-image_directory = Path("PNGs")
+
 
 
 class App(EH.HandleEvent):
@@ -38,7 +38,6 @@ class App(EH.HandleEvent):
         self.xpos_change = 0
         self.ypos_change = 0
         self.move = False
-        self.hero = image_directory / 'Single_Old_Hero.png'
         self.player_width = 15
         self.player_height = 12
 
@@ -55,7 +54,7 @@ class App(EH.HandleEvent):
         self.clock = pyg.time.Clock()
         
         # loads the single image in to the image_surf variable
-        self._image_surf = pyg.image.load('Single_Old_Hero.png')
+        self._image_surf = pyg.image.load(images.player.charcter)
         self.player_xpos = self.width * .5
         self.player_ypos = self.height * .75
         return True
@@ -75,11 +74,11 @@ class App(EH.HandleEvent):
         self.message_display("Try Again!", .65)
         pyg.display.update()
         time.sleep(2)
-
         self.on_execute()
 
     # what to do after this event loop    
     def on_loop(self):
+        self.clock.tick(60)
         if self.player_xpos > self.width - self.player_width or self.player_xpos < 0:
             self.on_crash()
         if self.player_ypos > self.height - self.player_height or self.player_ypos < 0:
@@ -108,7 +107,6 @@ class App(EH.HandleEvent):
         while self._running:
             for event in pyg.event.get():
                 self.on_event(event)
-            self.clock.tick(60)
             self.on_loop()
             self.on_render()
         self.on_cleanup()
