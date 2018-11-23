@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Created on Thu Nov  8 13:20:18 2018
-ToDo: 
+
+ToDo:
     Make it stop on the edges / game over on the edge
+
+
     Make a Start screen
         Press x to play
         Credits?
         Different Music?
+
     Make a Game Over Screen
         Display Text to screen
         Credits?
@@ -45,10 +50,10 @@ class App(EH.HandleEvent):
         # sets the window name
         self._running = True
         pyg.display.set_caption('A Try Force Production')
-        
+
         # this is how I manage the frames per second
         self.clock = pyg.time.Clock()
-        
+
         # loads the single image in to the image_surf variable
         self._image_surf = pyg.image.load("Single_Old_Hero.png")
         self.player_xpos = self.width * .5
@@ -66,7 +71,7 @@ class App(EH.HandleEvent):
         self._display_surf.blit(textsurf, textrect)
 
     def on_crash(self):
-        self.message_display("The Aliens Won Solider")
+        self.message_display("Game Over")
         self.message_display("Try Again!", .65)
         pyg.display.update()
         time.sleep(2)
