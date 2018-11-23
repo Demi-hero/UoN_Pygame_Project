@@ -115,4 +115,4 @@ class App(EH.HandleEvent):
 if __name__ == '__main__':
     theApp = App()
     theApp.on_execute()
-    
+
