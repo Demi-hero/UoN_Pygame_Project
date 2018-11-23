@@ -20,7 +20,7 @@ ToDo:
 
 import pygame as pyg
 import event_handler as EH
-import images
+# import images
 import time
 
 
@@ -54,7 +54,7 @@ class App(EH.HandleEvent):
         self.clock = pyg.time.Clock()
         
         # loads the single image in to the image_surf variable
-        self._image_surf = pyg.image.load(images.player.charcter)
+        self._image_surf = pyg.image.load("Single_Old_Hero.png")
         self.player_xpos = self.width * .5
         self.player_ypos = self.height * .75
         return True
