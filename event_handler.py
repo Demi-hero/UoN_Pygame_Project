@@ -2,7 +2,6 @@
 """
 Created on Wed Nov 21 15:03:01 2018
 
-@author: Nathan
 """
 import pygame
 
