@@ -39,8 +39,23 @@ class App(EH.Handle_Event):
         self.player_xpos = self.width * .5
         self.player_ypos = self.height * .75
         return True
-    
-    # event handling done by my import template now
+
+    def text_objects(self, text, font):
+        textsurface = font.render(text, True, self.black)
+        return textsurface, textsurface.get_rect()
+
+    def message_display(self, text, yloc=.45, xloc=.5):
+        largetext = pyg.font.Font('freesansbold.ttf', 50)
+        textsurf, textrect = self.text_objects(text, largetext)
+        textrect.center = (self.width * xloc), (self.height * yloc)
+        self._display_surf.blit(textsurf, textrect)
+
+    def on_crash(self):
+        self.message_display("The Aliens Won Solider")
+        self.message_display("Try Again!", .65)
+        pyg.display.update()
+        time.sleep(2)
+        self.on_execute()
     
             
     # what to do after this event loop    
