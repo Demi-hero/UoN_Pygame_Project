@@ -1,14 +1,11 @@
 import pygame as pyg
+import os
 
-class Images:
+image_dir = "PNGs"
 
+class Character:
     def __init__(self):
-        self.image_directory = Path("./PNGs")
-
-
-class Character (Images):
-    def __init__(self):
-        self.charcter = os.path.join( self.image_directory, "Single_Old_Hero.png", )
+        self.charsprite = pygame.image.load(os.path.join(image_dir, "Single_Old_Hero.PNG"))
 
 
 player = Character()
